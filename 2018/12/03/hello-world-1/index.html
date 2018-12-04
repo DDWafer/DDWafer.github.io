@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>hello world | 小狼的博客</title>
+  <title>PYthon3搭建简易服务器，google浏览器不能显示的问题 | 小狼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Quick Start哈哈哈">
+  <meta name="description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
 <meta name="keywords" content="test">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hello world">
+<meta property="og:title" content="PYthon3搭建简易服务器，google浏览器不能显示的问题">
 <meta property="og:url" content="http://yoursite.com/2018/12/03/hello-world-1/index.html">
 <meta property="og:site_name" content="小狼的博客">
-<meta property="og:description" content="Quick Start哈哈哈">
+<meta property="og:description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-03T13:51:01.691Z">
+<meta property="og:updated_time" content="2018-12-04T05:51:22.785Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hello world">
-<meta name="twitter:description" content="Quick Start哈哈哈">
+<meta name="twitter:title" content="PYthon3搭建简易服务器，google浏览器不能显示的问题">
+<meta name="twitter:description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
   
     <link rel="alternative" href="/atom.xml" title="小狼的博客" type="application/atom+xml">
   
@@ -160,7 +160,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      hello world
+      PYthon3搭建简易服务器，google浏览器不能显示的问题
     </h1>
   
 
@@ -173,7 +173,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="哈哈哈"><a href="#哈哈哈" class="headerlink" title="哈哈哈"></a>哈哈哈</h3>
+        <h2 id="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"><a href="#自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录" class="headerlink" title="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"></a>自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录</h2><a id="more"></a>
+<h3 id="问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。"><a href="#问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。" class="headerlink" title="问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。"></a>问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。</h3><p>百度得到两种思路，一是html的内核属性设置错误，二是服务器的返回值少了一句表示服务器响应成功的话。<br>一的思路解决了为何该html文件可以识别不同浏览器的原因<br>二的思路解决了无法渲染的问题，应该是不同浏览器提供渲染的要求不同？<br>困扰时间:2018.11.9     23:00    ~    2018.11.10     10:31</p>
+<h3 id="问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"><a href="#问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。" class="headerlink" title="问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"></a>问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。</h3><p>问题在于本地服务器上不能有过多操作，python3中的print接收和发送报文的操作占用了过多时间，导致本地服务器假死。<br>困扰时间:2018.11.10     11:00    ~    2018.11.10     17:06</p>
+<p>源码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_request</span><span class="params">()</span>:</span></span><br><span class="line">    a=open(<span class="string">r'C:\Users\96484\test.html'</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">    acon=a.read()</span><br><span class="line">    <span class="keyword">return</span> acon</span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.setsockopt(SOL_SOCKET, SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8081</span>))</span><br><span class="line">s.listen(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    conn,addr = s.accept()</span><br><span class="line">    print(<span class="string">"connected by &#123;&#125;"</span>.format(addr))</span><br><span class="line">    recv_data = conn.recv(<span class="number">64</span>*<span class="number">1024</span>)</span><br><span class="line">    print(recv_data)</span><br><span class="line">    resp_data = handle_request()</span><br><span class="line">    print(resp_data)</span><br><span class="line">    conn.sendall(bytes(<span class="string">'HTTP/1.1 201 OK\r\n\r\n'</span>, <span class="string">'utf8'</span>))</span><br><span class="line">    a=conn.sendall(resp_data.encode(encoding=<span class="string">"UTF-8"</span>))</span><br><span class="line">    print(a)</span><br><span class="line">    conn.close()</span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
+
       
       
       
@@ -291,7 +296,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#哈哈哈"><span class="toc-number">1.1.</span> <span class="toc-text">哈哈哈</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"><span class="toc-number">1.</span> <span class="toc-text">自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。"><span class="toc-number">1.1.</span> <span class="toc-text">问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"><span class="toc-number">1.2.</span> <span class="toc-text">问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
