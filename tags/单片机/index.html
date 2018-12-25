@@ -6,20 +6,15 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>PYthon3搭建简易服务器，google浏览器不能显示的问题 | 小狼的博客</title>
+  <title>Tag: 单片机 | 小狼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
-<meta name="keywords" content="test">
-<meta property="og:type" content="article">
-<meta property="og:title" content="PYthon3搭建简易服务器，google浏览器不能显示的问题">
-<meta property="og:url" content="http://yoursite.com/2018/12/03/hello-world-1/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="小狼的博客">
+<meta property="og:url" content="http://yoursite.com/tags/单片机/index.html">
 <meta property="og:site_name" content="小狼的博客">
-<meta property="og:description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-19T13:38:59.779Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PYthon3搭建简易服务器，google浏览器不能显示的问题">
-<meta name="twitter:description" content="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录">
+<meta name="twitter:title" content="小狼的博客">
   
     <link rel="alternative" href="/atom.xml" title="小狼的博客" type="application/atom+xml">
   
@@ -153,179 +148,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world-1" class="article article-type-post " itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      PYthon3搭建简易服务器，google浏览器不能显示的问题
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/12/25/MPU6050+CC2530/" class="archive-article-date">
+  	<time datetime="2018-12-25T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/12/25/MPU6050+CC2530/">CC2530移植MPU6050DMP库</a>
     </h1>
   
 
-        
-        <a href="/2018/12/03/hello-world-1/" class="archive-article-date">
-  	<time datetime="2018-12-03T12:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"><a href="#自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录" class="headerlink" title="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"></a>自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录</h2><a id="more"></a>
-<h3 id="问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。"><a href="#问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。" class="headerlink" title="问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。"></a>问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。</h3><p>百度得到两种思路，一是html的内核属性设置错误，二是服务器的返回值少了一句表示服务器响应成功的话。<br>一的思路解决了为何该html文件可以识别不同浏览器的原因<br>二的思路解决了无法渲染的问题，应该是不同浏览器提供渲染的要求不同？<br>困扰时间:2018.11.9     23:00    ~    2018.11.10     10:31</p>
-<h3 id="问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"><a href="#问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。" class="headerlink" title="问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"></a>问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。</h3><p>问题在于本地服务器上不能有过多操作，python3中的print接收和发送报文的操作占用了过多时间，导致本地服务器假死。<br>困扰时间:2018.11.10     11:00    ~    2018.11.10     17:06</p>
-<p>源码如下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_request</span><span class="params">()</span>:</span></span><br><span class="line">    a=open(<span class="string">r'C:\Users\96484\test.html'</span>,<span class="string">'r'</span>,encoding=<span class="string">"utf-8"</span>)</span><br><span class="line">    acon=a.read()</span><br><span class="line">    <span class="keyword">return</span> acon</span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.setsockopt(SOL_SOCKET, SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8081</span>))</span><br><span class="line">s.listen(<span class="number">10</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    conn,addr = s.accept()</span><br><span class="line">    print(<span class="string">"connected by &#123;&#125;"</span>.format(addr))</span><br><span class="line">    recv_data = conn.recv(<span class="number">64</span>*<span class="number">1024</span>)</span><br><span class="line">    print(recv_data)</span><br><span class="line">    resp_data = handle_request()</span><br><span class="line">    print(resp_data)</span><br><span class="line">    conn.sendall(bytes(<span class="string">'HTTP/1.1 201 OK\r\n\r\n'</span>, <span class="string">'utf8'</span>))</span><br><span class="line">    a=conn.sendall(resp_data.encode(encoding=<span class="string">"UTF-8"</span>))</span><br><span class="line">    print(a)</span><br><span class="line">    conn.close()</span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure>
-<h3 id="后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段"><a href="#后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段" class="headerlink" title="后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段"></a>后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段</h3><hr>
-<p>个人理解，web对服务器的请求就是以固定格式对文件请求的过程，无法获取就会重复发送请求。<br>但有个问题在于，当我按照它请求的文件上传文件时，它如何知道服务器回应的文件就是它请求的文件呢？还不太了解<br>代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> socket <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process <span class="comment">#导入进程模块</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HTML_ROOT_DIR=<span class="string">'.'</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle_request</span><span class="params">(client_socket)</span>:</span></span><br><span class="line">    <span class="comment">#a=open(r'.\Test.html','r',encoding ="utf-8")</span></span><br><span class="line">    <span class="comment">#a =open(r'C:\Users\96484\test.html','r',encoding="utf-8")</span></span><br><span class="line">    <span class="comment">#acon=a.read()</span></span><br><span class="line">    <span class="comment">#return acon</span></span><br><span class="line">    print(<span class="string">"11"</span>)</span><br><span class="line">    request_data=client_socket.recv(<span class="number">64</span>*<span class="number">1024</span>)</span><br><span class="line">    <span class="comment">#print(request_data)</span></span><br><span class="line">    request_lines=request_data.splitlines()</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> request_lines:</span><br><span class="line">        print(line)</span><br><span class="line">    <span class="comment">#'GET / HTTP/1.1'</span></span><br><span class="line">    request_start_line=request_lines[<span class="number">0</span>].decode(<span class="string">"utf-8"</span>)</span><br><span class="line"> </span><br><span class="line">    print(<span class="string">"*"</span>*<span class="number">10</span>)</span><br><span class="line">    print(request_start_line)</span><br><span class="line"> </span><br><span class="line">    <span class="comment">#提取用户请求的文件名</span></span><br><span class="line">    file_name=re.match(<span class="string">r"\w+ +(/[^ ]*) "</span>,str(request_start_line)).group(<span class="number">1</span>)</span><br><span class="line">    print(file_name)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">"/"</span> == file_name:</span><br><span class="line">        file_name=<span class="string">'/test.html'</span></span><br><span class="line">    <span class="comment">#打开文件，读取内容</span></span><br><span class="line">        <span class="comment">#print(HTML_ROOT_DIR+file_name)</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        file=open(HTML_ROOT_DIR+file_name,<span class="string">"rb"</span>)</span><br><span class="line">        <span class="comment">#file=open('./test_1.html',"rb")</span></span><br><span class="line">    <span class="keyword">except</span> IOError:</span><br><span class="line">        response_start_line=<span class="string">"HTTP/1.1 404 Not Found\r\n"</span></span><br><span class="line">        response_heads=<span class="string">"Server: My server\r\n"</span></span><br><span class="line">        response_body=<span class="string">"The file not found!"</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        file_data=file.read()</span><br><span class="line">        file.close()</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">        response_start_line=<span class="string">"HTTP/1.1 201 ok\r\n"</span></span><br><span class="line">        response_heads=<span class="string">"Server: My server\r\n"</span></span><br><span class="line">        response_body=file_data.decode(<span class="string">"utf-8"</span>)</span><br><span class="line">    response=response_start_line+response_heads+<span class="string">"\r\n"</span>+response_body</span><br><span class="line">    <span class="comment">#print("response data:",response)</span></span><br><span class="line">    client_socket.send(bytes(response,<span class="string">"utf-8"</span>))</span><br><span class="line">    client_socket.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">s = socket(AF_INET, SOCK_STREAM)</span><br><span class="line">s.setsockopt(SOL_SOCKET, SO_REUSEADDR, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">s.bind((<span class="string">'127.0.0.1'</span>, <span class="number">8081</span>))</span><br><span class="line">s.listen(<span class="number">10</span>)</span><br><span class="line">print(<span class="string">"00"</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    print(<span class="string">"11"</span>)</span><br><span class="line">    conn,addr = s.accept()</span><br><span class="line">    <span class="comment">#print("connected by &#123;&#125;".format(addr))</span></span><br><span class="line">    <span class="comment">#recv_data = conn.recv(64*1024)</span></span><br><span class="line">    <span class="comment">#print(recv_data)</span></span><br><span class="line">    <span class="comment">#resp_data = handle_request()</span></span><br><span class="line">    <span class="comment">#print(resp_data)</span></span><br><span class="line">    <span class="comment">#conn.sendall(bytes('HTTP/1.1 201 OK\r\n\r\n', 'utf8'))</span></span><br><span class="line">    <span class="comment">#a=conn.sendall(resp_data.encode(encoding="UTF-8"))</span></span><br><span class="line">    <span class="comment">#print(a)</span></span><br><span class="line">    <span class="comment">#handle_client_process=Process(target=handle_request,args=(conn,))   #ALT+ENTER快捷键生成函数</span></span><br><span class="line">    <span class="comment">#handle_client_process.start()</span></span><br><span class="line">    handle_request(conn)</span><br><span class="line">    print(<span class="string">"22"</span>)</span><br><span class="line">    <span class="comment">#conn.close()</span></span><br><span class="line">s.close()</span><br></pre></td></tr></table></figure></p>
-<p>其他博客上有看到使用多线程处理请求的，试了几次没有成功，也不知问题所在，记录一下，之后有时间在解决吧~</p>
-
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      <span id="busuanzi_container_page_pv">
-        |阅读量(<span id="busuanzi_value_page_pv"></span>)
-      </span>
-      
+          
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/03/hello-world-1/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/12/06/static_const/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          static和const学习
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/12/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"><span class="toc-number">1.</span> <span class="toc-text">自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404-），只能显示源码（火狐）。"><span class="toc-number">1.1.</span> <span class="toc-text">问题：一个html文件，用浏览器打开可以实现效果的渲染，但通过python3写的简易本地服务器调用该文件，无法显示效果（谷歌404,），只能显示源码（火狐）。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。"><span class="toc-number">1.2.</span> <span class="toc-text">问题：如何应对客户端提出的多个文件的请求，分析请求包的内容，并依次链接本地文件进行发送。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段"><span class="toc-number">1.3.</span> <span class="toc-text">后续加了一些对js文件、图片文件请求的应答，python语法不太懂，只用了print函数来作为调试的手段</span></a></li></ol></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
+    
 
 
           </div>
@@ -356,9 +232,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
