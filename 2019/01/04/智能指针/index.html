@@ -15,12 +15,12 @@
 <meta property="og:site_name" content="小狼的博客">
 <meta property="og:description" content="title: 智能指针date: 2019-1-04 20:40:31tags: C++">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="en-resource://database/420:1">
-<meta property="og:updated_time" content="2019-01-04T13:33:11.470Z">
+<meta property="og:image" content="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png">
+<meta property="og:updated_time" content="2019-01-04T13:44:02.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="小狼的博客">
 <meta name="twitter:description" content="title: 智能指针date: 2019-1-04 20:40:31tags: C++">
-<meta name="twitter:image" content="en-resource://database/420:1">
+<meta name="twitter:image" content="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png">
   
     <link rel="alternative" href="/atom.xml" title="小狼的博客" type="application/atom+xml">
   
@@ -159,7 +159,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>title: 智能指针<br>date: 2019-1-04 20:40:31<br>tags: C++<br><a id="more"></a><br><strong>在看caffe里CPU和GPU的数据同步的时候又看到了这个东西，整理一下自己的理解，方便之后回顾。</strong><br>（PS：最近准备把好多以前的想法整理一下，以后回顾，师兄说这是很好的习惯。发现自己真的特别不善于总结，学的东西也很浅，写下来自己看都觉得丢人……但是师兄说。。没关系  好吧其实感觉自己就是一身坏习惯，坚持！！！养成记笔记的习惯！！！）</p>
+        <hr>
+<p>title: 智能指针<br>date: 2019-1-04 20:40:31<br>tags: C++<br><a id="more"></a><br><strong>在看caffe里CPU和GPU的数据同步的时候又看到了这个东西，整理一下自己的理解，方便之后回顾。</strong><br>（PS：最近准备把好多以前的想法整理一下，以后回顾，师兄说这是很好的习惯。发现自己真的特别不善于总结，学的东西也很浅，写下来自己看都觉得丢人……但是师兄说。。没关系  好吧其实感觉自己就是一身坏习惯，坚持！！！养成记笔记的习惯！！！）</p>
 <hr>
 <p>在caffe里看到 <em>Every time you work on a blob ,call the function to get the pointers as the syncedMem will need this to figure out when to copy data</em> 意思是在对blob数据进行操作的时候，syncedMem这个类需要指针来告诉自己何时需要复制数据。<br>先记录一下各个名词……（知道自己为什么不喜欢记笔记了……这种东西一写下来感觉自己好自卑，什么也不会。。）</p>
 <hr>
@@ -174,7 +175,7 @@
 <p>这里记录一下在别的博客上看到的一些名词含义<br>batchsize:SGD训练，每次训练在训练集中取batchsize个样本训练<br>iteration:1个iteration等于用batchsize个样本训练一次<br>epoch:1个epoch等于所有样本被训练一次</p>
 <p>batch：深度学习每一次参数的更新需要的损失函数是有一组数据加权得到，这一组数据的数量就是batchsize<br>full batch learning就是batchsize为样本总数<br>SGD是stochastic gradient descent的缩写  梯度下降的优化算法<br>一般更新参数是小批数据读完就更新一次，如果遍历所有数据更新一次，速度过慢，不支持在线学习。如果每个数据算一次损失函数，可能找不到最优点，受随机影响很大，导致无法收敛。</p>
 <hr>
-<h4 id="SyncedMemory-CPU和GPU之间的内存同步"><a href="#SyncedMemory-CPU和GPU之间的内存同步" class="headerlink" title="SyncedMemory CPU和GPU之间的内存同步"></a><strong>SyncedMemory CPU和GPU之间的内存同步</strong></h4><p><img src="en-resource://database/420:1" alt="23779898ef57a22d8169fe60ac85a382.png"><br>syncedMemory这个类是 blob成员变量的指针类型，用来做内存管理<br>其中有head的标志位如上图所示，主要作用是表示当前BLOB内部数据的情况<br>使用枚举量 UNINITIALIZED HEAD_AT_CPU HEAD_AT_GPU SYNCED作为标志</p>
+<h4 id="SyncedMemory-CPU和GPU之间的内存同步"><a href="#SyncedMemory-CPU和GPU之间的内存同步" class="headerlink" title="SyncedMemory CPU和GPU之间的内存同步"></a><strong>SyncedMemory CPU和GPU之间的内存同步</strong></h4><p><img src="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png" alt="synmem"><br>syncedMemory这个类是 blob成员变量的指针类型，用来做内存管理<br>其中有head的标志位如上图所示，主要作用是表示当前BLOB内部数据的情况<br>使用枚举量 UNINITIALIZED HEAD_AT_CPU HEAD_AT_GPU SYNCED作为标志</p>
 <ul>
 <li>UNINITIALIZED：表示未分配空间，还处于空指针</li>
 <li>HEAD_AT_CPU：数据的最近一次更新在CPU中</li>
