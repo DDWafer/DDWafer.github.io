@@ -6,21 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>小狼的博客</title>
+  <title>智能指针 | 小狼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="title: 智能指针date: 2019-1-04 20:40:31tags: C++">
+  <meta name="description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小狼的博客">
+<meta property="og:title" content="智能指针">
 <meta property="og:url" content="http://yoursite.com/2019/01/04/智能指针/index.html">
 <meta property="og:site_name" content="小狼的博客">
-<meta property="og:description" content="title: 智能指针date: 2019-1-04 20:40:31tags: C++">
+<meta property="og:description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png">
-<meta property="og:updated_time" content="2019-01-04T13:44:02.709Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png">
+<meta property="og:updated_time" content="2019-01-04T13:49:11.221Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小狼的博客">
-<meta name="twitter:description" content="title: 智能指针date: 2019-1-04 20:40:31tags: C++">
-<meta name="twitter:image" content="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png">
+<meta name="twitter:title" content="智能指针">
+<meta name="twitter:description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png">
   
     <link rel="alternative" href="/atom.xml" title="小狼的博客" type="application/atom+xml">
   
@@ -157,10 +158,24 @@
             <article id="post-智能指针" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      智能指针
+    </h1>
+  
+
+        
+        <a href="/2019/01/04/智能指针/" class="archive-article-date">
+  	<time datetime="2019-01-04T12:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
+</a>
+        
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>title: 智能指针<br>date: 2019-1-04 20:40:31<br>tags: C++<br><a id="more"></a><br><strong>在看caffe里CPU和GPU的数据同步的时候又看到了这个东西，整理一下自己的理解，方便之后回顾。</strong><br>（PS：最近准备把好多以前的想法整理一下，以后回顾，师兄说这是很好的习惯。发现自己真的特别不善于总结，学的东西也很浅，写下来自己看都觉得丢人……但是师兄说。。没关系  好吧其实感觉自己就是一身坏习惯，坚持！！！养成记笔记的习惯！！！）</p>
+        <p>看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程<br><a id="more"></a><br><strong>在看caffe里CPU和GPU的数据同步的时候又看到了这个东西，整理一下自己的理解，方便之后回顾。</strong><br>（PS：最近准备把好多以前的想法整理一下，以后回顾，师兄说这是很好的习惯。发现自己真的特别不善于总结，学的东西也很浅，写下来自己看都觉得丢人……但是师兄说。。没关系  好吧其实感觉自己就是一身坏习惯，坚持！！！养成记笔记的习惯！！！）</p>
 <hr>
 <p>在caffe里看到 <em>Every time you work on a blob ,call the function to get the pointers as the syncedMem will need this to figure out when to copy data</em> 意思是在对blob数据进行操作的时候，syncedMem这个类需要指针来告诉自己何时需要复制数据。<br>先记录一下各个名词……（知道自己为什么不喜欢记笔记了……这种东西一写下来感觉自己好自卑，什么也不会。。）</p>
 <hr>
@@ -175,7 +190,7 @@
 <p>这里记录一下在别的博客上看到的一些名词含义<br>batchsize:SGD训练，每次训练在训练集中取batchsize个样本训练<br>iteration:1个iteration等于用batchsize个样本训练一次<br>epoch:1个epoch等于所有样本被训练一次</p>
 <p>batch：深度学习每一次参数的更新需要的损失函数是有一组数据加权得到，这一组数据的数量就是batchsize<br>full batch learning就是batchsize为样本总数<br>SGD是stochastic gradient descent的缩写  梯度下降的优化算法<br>一般更新参数是小批数据读完就更新一次，如果遍历所有数据更新一次，速度过慢，不支持在线学习。如果每个数据算一次损失函数，可能找不到最优点，受随机影响很大，导致无法收敛。</p>
 <hr>
-<h4 id="SyncedMemory-CPU和GPU之间的内存同步"><a href="#SyncedMemory-CPU和GPU之间的内存同步" class="headerlink" title="SyncedMemory CPU和GPU之间的内存同步"></a><strong>SyncedMemory CPU和GPU之间的内存同步</strong></h4><p><img src="https://github.com/DDWafer/DDWafer.github.io/blob/master/img/syncedmem.png" alt="synmem"><br>syncedMemory这个类是 blob成员变量的指针类型，用来做内存管理<br>其中有head的标志位如上图所示，主要作用是表示当前BLOB内部数据的情况<br>使用枚举量 UNINITIALIZED HEAD_AT_CPU HEAD_AT_GPU SYNCED作为标志</p>
+<h4 id="SyncedMemory-CPU和GPU之间的内存同步"><a href="#SyncedMemory-CPU和GPU之间的内存同步" class="headerlink" title="SyncedMemory CPU和GPU之间的内存同步"></a><strong>SyncedMemory CPU和GPU之间的内存同步</strong></h4><p><img src="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png" alt="synmem"><br>syncedMemory这个类是 blob成员变量的指针类型，用来做内存管理<br>其中有head的标志位如上图所示，主要作用是表示当前BLOB内部数据的情况<br>使用枚举量 UNINITIALIZED HEAD_AT_CPU HEAD_AT_GPU SYNCED作为标志</p>
 <ul>
 <li>UNINITIALIZED：表示未分配空间，还处于空指针</li>
 <li>HEAD_AT_CPU：数据的最近一次更新在CPU中</li>
@@ -184,8 +199,7 @@
 </ul>
 <p>内存管理的这个类中有一些成员函数：const类型的只读函数；mutable_XX的读取函数会改变head标志位到XX的一侧，这样当在另外一侧读取数据时，不论数据是否被修改，都会强制同步；set_XX_data函数，改变数据的同时，会将head标志位变换到XX一侧。<br>当调用不同的读写函数时，根据head标志位的情况，判断是否需要进行CPU和GPU之间的内存同步。</p>
 <hr>
-<h4 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a><strong>智能指针</strong></h4><hr>
-<p><strong>shared_ptr</strong></p>
+<h4 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a><strong>智能指针</strong></h4><p><strong>shared_ptr</strong></p>
 <p>在blob的成员函数中，data和diff都是shared_ptr指针，看了一些博客好像并没有讲为什么要用这个指针，是不是已经是C++中约定俗成的事情了。。。<br>大致看了一下shared_ptr,首先这个智能指针是使用RAII（资源获取即初始化）的技术对指针进行封装，本质是哥对象，但是用起来的方式是指针。<br>shared_ptr可以实现多个指针指向同一片内存区域（别的地方将对象，这个概念之后我再了解一下。。。），内部的计数器记录了这片内存被智能指针使用的次数，每调用一次智能指针的析构函数，计数器就减1，到0的时候，释放指向的堆上内存。<br><code>shared_ptr&lt;int&gt; sp(new int(10));                //一个指向整数的shared_ptr</code><br><code>std::shared_ptr&lt;int&gt; ptra = std::make_shared&lt;int&gt;(a);</code><br>这两种初始化形式都可以，但是不能把一个指针用=赋值给shared_ptr，因为一个是类，一个是指针</p>
 <hr>
 <p><strong>unique_ptr</strong>和<strong>weak_ptr</strong><br>这篇博客吧，感觉讲的很好，但是我还不太能理解<br>记录一个链接吧<br><a href="https://www.cnblogs.com/wxquare/p/4759020.html" target="_blank" rel="noopener">C++11中智能指针的原理、使用、实现</a></p>
@@ -200,6 +214,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
