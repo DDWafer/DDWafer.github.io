@@ -6,20 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>CC2530移植MPU6050DMP库 | 小样的博客</title>
+  <title>小样的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录一些走过的keil和IAR的坑吧">
-<meta name="keywords" content="单片机">
+  <meta name="description" content="title: CC2530移植MPU6050DMP库date: 2018-12-25 16:14tags: 单片机  记录一些走过的keil和IAR的坑吧">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CC2530移植MPU6050DMP库">
+<meta property="og:title" content="小样的博客">
 <meta property="og:url" content="http://yoursite.com/2018/12/25/MPU6050+CC2530/index.html">
 <meta property="og:site_name" content="小样的博客">
-<meta property="og:description" content="记录一些走过的keil和IAR的坑吧">
+<meta property="og:description" content="title: CC2530移植MPU6050DMP库date: 2018-12-25 16:14tags: 单片机  记录一些走过的keil和IAR的坑吧">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-08T06:55:24.370Z">
+<meta property="og:updated_time" content="2019-01-08T07:04:42.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CC2530移植MPU6050DMP库">
-<meta name="twitter:description" content="记录一些走过的keil和IAR的坑吧">
+<meta name="twitter:title" content="小样的博客">
+<meta name="twitter:description" content="title: CC2530移植MPU6050DMP库date: 2018-12-25 16:14tags: 单片机  记录一些走过的keil和IAR的坑吧">
   
     <link rel="alternative" href="/atom.xml" title="小样的博客" type="application/atom+xml">
   
@@ -156,42 +155,35 @@
             <article id="post-MPU6050+CC2530" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      CC2530移植MPU6050DMP库
-    </h1>
-  
-
-        
-        <a href="/2018/12/25/MPU6050+CC2530/" class="archive-article-date">
-  	<time datetime="2018-12-25T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
-</a>
-        
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        <p>记录一些走过的keil和IAR的坑吧<br><a id="more"></a></p>
+        <hr>
+<p>title: CC2530移植MPU6050DMP库<br>date: 2018-12-25 16:14<br>tags: 单片机</p>
+<hr>
+<p>记录一些走过的keil和IAR的坑吧<br><a id="more"></a></p>
 <h2 id="移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累"><a href="#移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累" class="headerlink" title="移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累"></a>移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累</h2><hr>
 <p>Q1：一开始在晚上随便找了块板子，下了寄存器手册，查了查例程，发现和ADXL345有相似之处，本质上还是一个IIC的读写，就准备直接读个寄存器试试。<br>查了查手册，发现who am i这个寄存器存放的是地址，于是乎使用CC2530之前用的ADXL345的IIC程序直接读取，结果发现没有信号，上拉全高，下拉全低。</p>
-<p>S1：研究了半天发现是写的模拟IIC的口和下载口重合，没有拔掉下载器导致整个程序不正常。当然，我也没有在手册上找到读写地址。。可能下的英文手册我</p>
-<h2 id="没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。"><a href="#没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。" class="headerlink" title="没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。"></a>没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。</h2><p>Q2：因为之前没有接触过这类传感器，对加速度计和陀螺仪的数据使用都没有什么概念，所以就想查查现成的，发现MPU自带的DMP固件库，可以直接读出四<br>元数，从而计算欧拉角，得到“点头”、“摇头”和“翻滚”的变化信息，但是官方提供的是MSP430的例程，因为感觉超级适合我这种小白，于是想移植到2530上。</p>
-<p>S2：查了查网上的资料，发现有一些STM32的移植方法，给我的感觉就是，有现成的模拟IIC就没有工作量了。。于是动手了，主要就是把例程里的IIC读写和<br>delay函数和要用的单片机用宏定义对应起来，开始大约1小时的复制粘贴改参数。编译，no errors，给了两个警告。一个是<br><code>#define GYRO_SF             (46850825LL * 200 / DMP_SAMPLE_RATE)</code>  LL表示long long型，运行时报警告<br><code>Warning[Pe061]: integer operation result is out of range</code>说这个变量超过范围了<br>注意这是一个坑。<br>另一个是<br><code>Warning[Pe223]: function &quot;fabsf&quot; declared implicitly</code>说对float变量取绝对值的这个函数声明模糊（我一直觉得IAR报这个错就是没有声明。。<br>说这么玄乎）这是一个小坑。</p>
+<p>S1：研究了半天发现是写的模拟IIC的口和下载口重合，没有拔掉下载器导致整个程序不正常。当然，我也没有在手册上找到读写地址。。可能下的英文手册我<br>没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。</p>
+<hr>
+<p>Q2：因为之前没有接触过这类传感器，对加速度计和陀螺仪的数据使用都没有什么概念，所以就想查查现成的，发现MPU自带的DMP固件库，可以直接读出四<br>元数，从而计算欧拉角，得到“点头”、“摇头”和“翻滚”的变化信息，但是官方提供的是MSP430的例程，因为感觉超级适合我这种小白，于是想移植到2530上。</p>
+<p>S2：查了查网上的资料，发现有一些STM32的移植方法，给我的感觉就是，有现成的模拟IIC就没有工作量了。。于是动手了，主要就是把例程里的IIC读写和<br>delay函数和要用的单片机用宏定义对应起来，开始大约1小时的复制粘贴改参数。编译，no errors，给了两个警告。一个是<br><code>#define GYRO_SF             (46850825LL * 200 / DMP_SAMPLE_RATE)</code>  LL表示long long型，运行时报警告<br><code>Warning[Pe061]: integer operation result is out of range</code>说这个变量超过范围了<br>注意这是一个坑。<br>另一个是<br><code>Warning[Pe223]: function &quot;fabsf&quot; declared implicitly</code>说对float变量取绝对值的这个函数声明模糊（我一直觉得IAR报这个错就是变量没有声明<br>）这是一个小坑。</p>
 <p>解释一下自己对这两个警告的理解</p>
 <ul>
-<li>1 CC2530是基于8051内核的单片机，也就是8bit的MCU，而MSP430是16位的，STM32是32位的，这里有个问题，就是<br><code>long long</code>类型唯独在8bit的MCU下，编译器认为是4个字节的数据，也就是说最多容纳值为40多亿的一个数据，而这里GYRO_SF的值大概是90亿/200，<br>所以在运行时链接出错，报警告。</li>
-<li>2 ARM内核的math.h是带有fabsf函数的声明的，在编译过程从内核中链接该函数的目标文件，但8051的内核没有这个函数，所以报了未声明的错误，这<br>时候观察一下预编译的块：就是带有<code>if defined</code>的这些块，发现宏定义的名字都是一些单片机的名字，有16位的也有32位的，就是没有8位的，不管，看<br>一下做了什么吧，发现<code>#define fabs(x)     (((x)&gt;0)?(x):-(x))</code>,嗯，把这句话复制到选择的块，并把<code>#define fabs        fabsf</code>删掉，解决<br>警告。</li>
+<li><p>1 CC2530是基于8051内核的单片机，也就是8bit的MCU，而MSP430是16位的，STM32是32位的，这里有个问题，就是<code>long long</code>类型唯独在8bit的MCU<br>下，编译器认为是4个字节的数据，也就是说最多容纳值为40多亿的一个数据，而这里GYRO_SF的值大概是90亿/200，所以在运行时链接出错，报警告。</p>
+</li>
+<li><p>2 ARM内核的math.h是带有fabsf函数的声明的，在编译过程从内核中链接该函数的目标文件，但8051的内核没有这个函数，所以报了未声明的错误，这<br>时候观察一下预编译的块：就是带有<code>if defined</code>的这些块，发现宏定义的名字都是一些单片机的名字，有16位的也有32位的，就是没有8位的，不管，看<br>一下做了什么吧，发现<code>#define fabs(x)     (((x)&gt;0)?(x):-(x))</code>,嗯，把这句话复制到选择的块，并把<code>#define fabs        fabsf</code>删掉，解决<br>警告。</p>
+</li>
 </ul>
 <hr>
 <h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>接上MPU6050，运行程序，发现数据不太对，不光初始的校正过程很慢，虽然最后趋于稳定，但在只对Pitch、Yaw、Roll某个方向旋转时，另外两轴也有变<br>化，说明数据有问题。</p>
 <p>下面开始了痛苦的找问题过程，首先，先看一下官方对DMP的说明，发现除了一些特性以外，就是对存储中二进制文件的导入以及对寄存器配置，有一点坑的<br>是，我下载的寄存器手册，关于DMP的寄存器全都没有，就是说无法知道寄存器的作用，只能按照官方给你的例程怎么配置就怎么配置，不过也好，省的动脑<br>了，就是找不同呗，按照我的理解，只要寄存器配置的都一样，没理由返回的四元数数据不同吧~</p>
-<p>这里先要重定义一下<code>putchar</code>函数，用printf函数来找，会方便很多，之前搞stm32只会用寄存器输出16进制数据，大眼盯800字节的数据，脑补分类的痛<br>苦回忆还历历在目。重新写一下IIC的write函数：<br> 加上<br>（1）打印出写入的地址、数据<br>（2）调用IIC_read函数<br>（3）打印读出的寄存器的值</p>
-<h2 id="这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。"><a href="#这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。" class="headerlink" title="这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。"></a>这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。</h2><p>这里讲一下遇到的IAR和KEIL的编译器的不同：<code>u8 *buf=NULL；</code>之后，IAR可以使用<code>*buf=（u8）data；</code>进行赋值，但是KEIL不能够，而且，keil也不<br>会给警告或者报错，就是停留在赋值这句话上。。。找了好久啊，吐槽一下，之前keil还遇到<code>char a[]=&quot;string，app&quot;</code>赋值内存泄漏的问题。。也是毫无警告，<br>还有<code>while（a）{}；</code>a在中断里改变，完全出不去，一定要重新读取内存才能跳出循环的问题，嗯，编译器就是这样的吧，就像VS里多线程变量的改变值<br>在主线程会被编译器直接忽略，release模式下直接编译成死循环……还不带提醒的。</p>
-<p>运行之后，发现<code>long long</code>这个数据写入的寄存器果然不对，怎么办，于是我找了一块16位的单片机，把每个这个值算了一遍，然后把得到的值直接通过</p>
-<h2 id="2530写进去了，嗯，暴力出奇迹。移植完成了。"><a href="#2530写进去了，嗯，暴力出奇迹。移植完成了。" class="headerlink" title="2530写进去了，嗯，暴力出奇迹。移植完成了。"></a>2530写进去了，嗯，暴力出奇迹。移植完成了。</h2><h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>再记录一下<code>\</code>这个宏定义转行符。。。不小心注释了我一个函数，找了好久。</p>
-<p>还有一个疑问，第111号寄存器的值在不同单片机上的寄存器值是不同的，但是好像不影响结果，还有一些写入和读取数据不同的情况，基本手册上都有写明<br>，大多是复位引起的自动变化automaticly。具体为什么，因为官方这个DMP库貌似完全不开源，我也不理解。但是网上查到，有大神从那个不永久保存的存储<br>器里通过反汇编，整理出了这个库干了些什么，留个链接以后看吧<a href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050" target="_blank" rel="noopener">链接</a></p>
+<p>这里先要重定义一下<code>putchar</code>函数，用printf函数来找，会方便很多，之前搞stm32只会用寄存器输出16进制数据，大眼盯800字节的数据，脑补分类的痛<br>苦回忆还历历在目。重新写一下IIC的write函数：<br> 加上<br>（1）打印出写入的地址、数据<br>（2）调用IIC_read函数<br>（3）打印读出的寄存器的值<br>这样省的在每个对寄存器写入的地方都重写读取函数，代码量大大减少，其实就是在IICwrite函数里加一下read的功能。</p>
+<hr>
+<p>这里讲一下遇到的IAR和KEIL的编译器的不同：<code>u8 *buf=NULL；</code>之后，IAR可以使用<code>*buf=（u8）data；</code>进行赋值，但是KEIL不能够，而且，keil也不<br>会给警告或者报错，就是停留在赋值这句话上。。。找了好久啊，吐槽一下，之前keil还遇到<code>char a[]=&quot;string，app&quot;</code>赋值内存泄漏的问题。。也是毫无警告，<br>还有<code>while（a）{}；</code>a在中断里改变，不会跳出while循环，一定要重新读取内存才能跳出循环的问题，类似VS里多线程变量的改变值在主线程会被编译器直<br>接忽略，release模式下优化后直接编译成死循环。（可查看汇编代码，会看到少了对变量的判断的代码）</p>
+<p>运行之后，发现<code>long long</code>这个数据写入的寄存器果然不对，怎么办，于是我找了一块16位的单片机，把每个这个值算了一遍，然后把得到的值直接通过<br>2530写进去了。最后查看数据基本正确，移植完成了。</p>
+<hr>
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><p>再记录一下<code>\</code>这个宏定义转行符，不小心注释了我一个函数，找了好久。</p>
+<p>还有一个疑问，第111号寄存器的值在不同单片机上的寄存器值是不同的，但是好像不影响结果，还有一些写入和读取数据不同的情况，基本手册上都有写明<br>，大多是复位引起的自动变化automaticly。具体为什么，因为官方这个DMP库貌似完全不开源，我也不理解。但是网上查到，有大神从那个不永久保存的存储<br>器里通过反汇编，整理出了这个库干了些什么，留个链接以后看吧<a href="https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050" target="_blank" rel="noopener">DMP库</a></p>
 
       
       
@@ -203,17 +195,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -316,7 +297,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累"><span class="toc-number">1.</span> <span class="toc-text">移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。"><span class="toc-number">2.</span> <span class="toc-text">没看懂，但是还好和ADXL345比较像，ADD口接地之后，0x68左移一位加上0就是写地址了，0xd0，读地址0xd1。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">2.1.</span> <span class="toc-text">测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。"><span class="toc-number">3.</span> <span class="toc-text">这样省的在每个对寄存器写入的地方都重写读取函数，偷个懒。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2530写进去了，嗯，暴力出奇迹。移植完成了。"><span class="toc-number">4.</span> <span class="toc-text">2530写进去了，嗯，暴力出奇迹。移植完成了。</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">4.1.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累"><span class="toc-number">1.</span> <span class="toc-text">移植完之后找问题找了整整两天，还是调试手段太局限了，记录一下过程吧。。有点累</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#测试"><span class="toc-number">1.1.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他"><span class="toc-number">1.2.</span> <span class="toc-text">其他</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -433,10 +414,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">单片机</a>
-              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">test</a>
