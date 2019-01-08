@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>小样的博客</title>
+  <title>static和const学习 | 小狼的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="小样的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="小样的博客">
+  <meta name="description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
+<meta name="keywords" content="C++">
+<meta property="og:type" content="article">
+<meta property="og:title" content="static和const学习">
+<meta property="og:url" content="http://yoursite.com/2018/12/06/智能指针/index.html">
+<meta property="og:site_name" content="小狼的博客">
+<meta property="og:description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png">
+<meta property="og:updated_time" content="2019-01-04T13:51:14.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小样的博客">
+<meta name="twitter:title" content="static和const学习">
+<meta name="twitter:description" content="看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png">
   
-    <link rel="alternative" href="/atom.xml" title="小样的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="小狼的博客" type="application/atom+xml">
   
   
     <link rel="icon" href="https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1543887217&di=fbc1b149f383789f70b57ef742ee3681&src=http://pic.58pic.com/58pic/15/42/80/16q58PICbhs_1024.jpg">
@@ -46,10 +53,10 @@
 			<img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1543887217&amp;di=fbc1b149f383789f70b57ef742ee3681&amp;src=http://pic.58pic.com/58pic/15/42/80/16q58PICbhs_1024.jpg" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/">小样</a></h1>
+		  <h1 class="header-author"><a href="/">小狼</a></h1>
 		</hgroup>
 		
-		<p class="header-subtitle">什么都不会啊！</p>
+		<p class="header-subtitle">别问了，都不会</p>
 		
 
 		<nav class="header-menu">
@@ -104,10 +111,10 @@
 				<img src="https://timgsa.baidu.com/timg?image&amp;quality=80&amp;size=b10000_10000&amp;sec=1543887217&amp;di=fbc1b149f383789f70b57ef742ee3681&amp;src=http://pic.58pic.com/58pic/15/42/80/16q58PICbhs_1024.jpg" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author">小样</h1>
+			  <h1 class="header-author js-header-author">小狼</h1>
 			</hgroup>
 			
-			<p class="header-subtitle"><i class="icon icon-quo-left"></i>什么都不会啊！<i class="icon icon-quo-right"></i></p>
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>别问了，都不会<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -148,175 +155,19 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-智能指针" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+            <article id="post-智能指针" class="article article-type-post " itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/04/智能指针/">智能指针</a>
+    <h1 class="article-title" itemprop="name">
+      static和const学习
     </h1>
   
 
         
-        <a href="/2019/01/04/智能指针/" class="archive-article-date">
-  	<time datetime="2019-01-04T12:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-01-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程<br>
-        
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/01/04/智能指针/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MPU6050+CC2530" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/25/MPU6050+CC2530/">CC2530移植MPU6050DMP库</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/25/MPU6050+CC2530/" class="archive-article-date">
-  	<time datetime="2018-12-25T08:14:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="记录一些走过的keil和IAR的坑吧"><a href="#记录一些走过的keil和IAR的坑吧" class="headerlink" title="记录一些走过的keil和IAR的坑吧"></a>记录一些走过的keil和IAR的坑吧</h2>
-        
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">单片机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/25/MPU6050+CC2530/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-static_const" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/06/static_const/">static和const学习</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/06/static_const/" class="archive-article-date">
+        <a href="/2018/12/06/智能指针/" class="archive-article-date">
   	<time datetime="2018-12-06T12:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-06</time>
 </a>
         
@@ -324,9 +175,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>static声明一个局部变量，那么可以认为在函数生命周期结束后，该变量并没有被释放，而是依然被保存在内存的一个地址中，下次函数执行时，该变量仍然保持上一次函数结束时的状态，且可以被改变。<br>static声明一个全局变量，仅仅限制了这个变量的适用范围，无法被其他文件调用<br>总的来说就是，static的生命周期贯穿于整个程序</p>
-<p>##const<br>const声明的变量不能被修改</p>
+        <p>看到caffe的CPU和GPU通过BLOB实现数据同步，记录下了解过程<br><a id="more"></a><br><strong>在看caffe里CPU和GPU的数据同步的时候又看到了这个东西，整理一下自己的理解，方便之后回顾。</strong><br>（PS：最近准备把好多以前的想法整理一下，以后回顾，师兄说这是很好的习惯。发现自己真的特别不善于总结，学的东西也很浅，写下来自己看都觉得丢人……但是师兄说。。没关系  好吧其实感觉自己就是一身坏习惯，坚持！！！养成记笔记的习惯！！！）</p>
+<hr>
+<p>在caffe里看到 <em>Every time you work on a blob ,call the function to get the pointers as the syncedMem will need this to figure out when to copy data</em> 意思是在对blob数据进行操作的时候，syncedMem这个类需要指针来告诉自己何时需要复制数据。<br>先记录一下各个名词……（知道自己为什么不喜欢记笔记了……这种东西一写下来感觉自己好自卑，什么也不会。。）</p>
+<hr>
+<h4 id="BLOB"><a href="#BLOB" class="headerlink" title="BLOB"></a><strong>BLOB</strong></h4><p>Blob是Caffe中的基础数据结构，主要作用如下：</p>
+<ol>
+<li><p>存储和传输数据，对外提供统一的内存接口。在Caffe中，输入图像、每层的权重和反向传播时的梯度、每层的输入和输出等都以Blob形式管理</p>
+</li>
+<li><p>隐藏CPU和GPU之间数据同步的细节（通过SyncedMemory实现），用户使用时不需要自己管理CPU和GPU间的数据同步</p>
+</li>
+</ol>
+<p>Blob是一个N维的张量，假如是4维，尺寸是<code>N*C*H*W</code>，分别是图像的张数，通道数（RGB图像C=3），H表示图像高度，W表示图像宽度。Blob这个数据结构，就是caffe这个框架下基本的数据单元。维数的不同，表示的意思也不一样，从而实现了在框架下做不同的事情时，代表不同的数据含义。</p>
+<p>这里记录一下在别的博客上看到的一些名词含义<br>batchsize:SGD训练，每次训练在训练集中取batchsize个样本训练<br>iteration:1个iteration等于用batchsize个样本训练一次<br>epoch:1个epoch等于所有样本被训练一次</p>
+<p>batch：深度学习每一次参数的更新需要的损失函数是有一组数据加权得到，这一组数据的数量就是batchsize<br>full batch learning就是batchsize为样本总数<br>SGD是stochastic gradient descent的缩写  梯度下降的优化算法<br>一般更新参数是小批数据读完就更新一次，如果遍历所有数据更新一次，速度过慢，不支持在线学习。如果每个数据算一次损失函数，可能找不到最优点，受随机影响很大，导致无法收敛。</p>
+<hr>
+<h4 id="SyncedMemory-CPU和GPU之间的内存同步"><a href="#SyncedMemory-CPU和GPU之间的内存同步" class="headerlink" title="SyncedMemory CPU和GPU之间的内存同步"></a><strong>SyncedMemory CPU和GPU之间的内存同步</strong></h4><p><img src="https://raw.githubusercontent.com/DDWafer/DDWafer.github.io/master/img/syncedmem.png" alt="synmem"><br>syncedMemory这个类是 blob成员变量的指针类型，用来做内存管理<br>其中有head的标志位如上图所示，主要作用是表示当前BLOB内部数据的情况<br>使用枚举量 UNINITIALIZED HEAD_AT_CPU HEAD_AT_GPU SYNCED作为标志</p>
+<ul>
+<li>UNINITIALIZED：表示未分配空间，还处于空指针</li>
+<li>HEAD_AT_CPU：数据的最近一次更新在CPU中</li>
+<li>HEAD_AT_GPU：数据的最近一次更新在GPU中</li>
+<li>SYNCED：数据是最新的，且同步完成</li>
+</ul>
+<p>内存管理的这个类中有一些成员函数：const类型的只读函数；mutable_XX的读取函数会改变head标志位到XX的一侧，这样当在另外一侧读取数据时，不论数据是否被修改，都会强制同步；set_XX_data函数，改变数据的同时，会将head标志位变换到XX一侧。<br>当调用不同的读写函数时，根据head标志位的情况，判断是否需要进行CPU和GPU之间的内存同步。</p>
+<hr>
+<h4 id="智能指针"><a href="#智能指针" class="headerlink" title="智能指针"></a><strong>智能指针</strong></h4><p><strong>shared_ptr</strong></p>
+<p>在blob的成员函数中，data和diff都是shared_ptr指针，看了一些博客好像并没有讲为什么要用这个指针，是不是已经是C++中约定俗成的事情了。。。<br>大致看了一下shared_ptr,首先这个智能指针是使用RAII（资源获取即初始化）的技术对指针进行封装，本质是哥对象，但是用起来的方式是指针。<br>shared_ptr可以实现多个指针指向同一片内存区域（别的地方将对象，这个概念之后我再了解一下。。。），内部的计数器记录了这片内存被智能指针使用的次数，每调用一次智能指针的析构函数，计数器就减1，到0的时候，释放指向的堆上内存。<br><code>shared_ptr&lt;int&gt; sp(new int(10));                //一个指向整数的shared_ptr</code><br><code>std::shared_ptr&lt;int&gt; ptra = std::make_shared&lt;int&gt;(a);</code><br>这两种初始化形式都可以，但是不能把一个指针用=赋值给shared_ptr，因为一个是类，一个是指针</p>
+<hr>
+<p><strong>unique_ptr</strong>和<strong>weak_ptr</strong><br>这篇博客吧，感觉讲的很好，但是我还不太能理解<br>记录一个链接吧<br><a href="https://www.cnblogs.com/wxquare/p/4759020.html" target="_blank" rel="noopener">C++11中智能指针的原理、使用、实现</a></p>
 
       
       
@@ -352,16 +228,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/06/static_const/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/06/智能指针/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/12/06/static_const/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          static和const学习
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/12/03/hello-world-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">PYthon3搭建简易服务器，google浏览器不能显示的问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -376,156 +320,30 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-hello-world-1" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/03/hello-world-1/">PYthon3搭建简易服务器，google浏览器不能显示的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2018/12/03/hello-world-1/" class="archive-article-date">
-  	<time datetime="2018-12-03T12:40:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"><a href="#自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录" class="headerlink" title="自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录"></a>自己按照网上教程搭的简易服务器，遇到了一些问题，在这里做一些记录</h2>
-        
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">test</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/03/hello-world-1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#BLOB"><span class="toc-number">1.</span> <span class="toc-text">BLOB</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#SyncedMemory-CPU和GPU之间的内存同步"><span class="toc-number">2.</span> <span class="toc-text">SyncedMemory CPU和GPU之间的内存同步</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#智能指针"><span class="toc-number">3.</span> <span class="toc-text">智能指针</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/03/hello-world/">Hello World</a>
-    </h1>
   
 
-        
-        <a href="/2018/12/03/hello-world/" class="archive-article-date">
-  	<time datetime="2018-12-03T12:34:28.389Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-12-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.<br>
-        
-      
-      
-      
-        <div class="declare" hidden="hidden"></div>
-      
-      
-    </p></div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/03/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -536,7 +354,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 小样
+    		&copy; 2019 小狼
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a>
@@ -556,8 +374,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
